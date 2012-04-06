@@ -26,12 +26,10 @@
   height: 24px;
 }
 
-.icon-glyph3:before { content: " "; }     /* '\20' */
-.icon-glyph4:before { content: "!"; }     /* '\21' */
 .icon-glyph5:before { content: "#"; }     /* '\23' */
 .icon-glyph6:before { content: "%"; }     /* '\25' */
-.icon-glyph7:before { content: "&amp;"; }     /* '\26' */
-.icon-glyph8:before { content: "'"; }     /* '\27' */
+.icon-glyph7:before { content: ""; }     /* '\e001' */
+.icon-glyph8:before { content: ""; }     /* '\e002' */
 .icon-glyph9:before { content: "("; }     /* '\28' */
 .icon-glyph10:before { content: ")"; }     /* '\29' */
 .icon-glyph11:before { content: "*"; }     /* '\2a' */
@@ -50,8 +48,8 @@
 .icon-glyph24:before { content: "7"; }     /* '\37' */
 .icon-glyph25:before { content: ":"; }     /* '\3a' */
 .icon-glyph26:before { content: ";"; }     /* '\3b' */
-.icon-glyph27:before { content: "&lt;"; }     /* '\3c' */
-.icon-glyph28:before { content: "&gt;"; }     /* '\3e' */
+.icon-glyph27:before { content: ""; }     /* '\e003' */
+.icon-glyph28:before { content: ""; }     /* '\e004' */
 .icon-glyph29:before { content: "?"; }     /* '\3f' */
 .icon-glyph30:before { content: "@"; }     /* '\40' */
 .icon-glyph31:before { content: "A"; }     /* '\41' */
@@ -78,7 +76,7 @@
 .icon-glyph52:before { content: "X"; }     /* '\58' */
 .icon-glyph53:before { content: "Z"; }     /* '\5a' */
 .icon-glyph54:before { content: "["; }     /* '\5b' */
-.icon-glyph55:before { content: "\"; }     /* '\5c' */
+.icon-glyph55:before { content: ""; }     /* '\e005' */
 .icon-glyph56:before { content: "]"; }     /* '\5d' */
 .icon-glyph57:before { content: "_"; }     /* '\5f' */
 .icon-glyph58:before { content: "`"; }     /* '\60' */

@@ -35,6 +35,11 @@ font:
 	#./bin/fontbuild.py -c ./config.yml -t ./src/font_template.sfd -i ./src/svg -o ./font/$(FONT_NAME).ttf
 	./bin/font_remap.py -c ./config.yml -i ./src/original/websymbols-regular-webfont.ttf -o ./font/$(FONT_NAME).ttf
 	#cp ./src/original/websymbols-regular-webfont.ttf ./font/$(FONT_NAME).ttf
+	./bin/font_transform.py -c ./config.yml \
+		-i ./font/$(FONT_NAME).ttf \
+		-o ./font/$(FONT_NAME)-transformed.ttf \
+	&& mv ./font/$(FONT_NAME)-transformed.ttf \
+		./font/$(FONT_NAME).ttf
 	$(TTFAUTOHINT_BIN) --latin-fallback --hinting-limit=200 --hinting-range-max=50 --symbol ./font/$(FONT_NAME).ttf ./font/$(FONT_NAME)-hinted.ttf
 	mv ./font/$(FONT_NAME)-hinted.ttf ./font/$(FONT_NAME).ttf
 	./bin/fontconvert.py -i ./font/$(FONT_NAME).ttf -o ./font
