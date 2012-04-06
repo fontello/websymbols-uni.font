@@ -1,0 +1,331 @@
+---
+# This is configuration file for font builder and other support scripts.
+# Format is descriped below.
+#
+#
+# css-prefix: "icon-"             # prefix for css-generated classes
+# demo-columns: 4                 # used for html demo page generation
+#
+# font:                           # all vars from here will be used as font
+#                                 # params in fontforge
+#   ...                           # http://fontforge.sourceforge.net/python.html
+#
+# transform:                      # Transformations applied to the font,
+#                                 # order is "resize, offset"
+#   resize: 0.68                  # Rescale glyphs around the center of bbox,
+#                                 # resize=1 means no scaling
+#   offset: -0.1                  # Shift glyphs vertically, positive offset
+#                                 # shifts upward, offset=1 means shift upward
+#                                 # to (ascent-descent) units
+#
+# glyphs:
+#   - glyph1_file:                # file name, without extention
+#       code: 0xNNN               # Symbol code 0x - hex
+#       to: 0xNNN                 # Symbol code 0x - hex, remapped code
+#       css: icon-gpyph1-name     # For generated CSS
+#       search: [word1, word2]    # Search aliases (array). CSS name will be
+#                                 # included automatically
+#       transform:                # Additional transformation applied to that
+#                                 # glyph
+#         offset: 0.2
+#
+################################################################################
+#
+# Mapping rules:
+#
+# 1. Downshift 1Fxxx -> Fxxx, because 1Fxxx codes not shown in Chrome/Opera
+#
+
+
+css-prefix: "icon-"
+demo-columns: 4
+
+
+font:
+  version: "1.000;PS 001.001;hotconv 1.0.56"
+
+  # use !!!small!!! letters a-z, or Opera will fail under OS X
+  # fontname will be also used as file name.
+  fontname: "WebSymbols-Regular"
+
+  fullname: "Web Symbols Regular"
+  familyname: "Web Symbols"
+
+  copyright: "Copyright (c) 2011 by Just Be Nice studio. All rights reserved."
+
+  ascent: 801
+  descent: 199
+  weight: "Book"
+
+
+glyphs:
+
+  - glyph3:
+      code: 0x0020
+
+  - glyph4:
+      code: 0x0021
+
+  - glyph5:
+      code: 0x0023
+
+  - glyph6:
+      code: 0x0025
+
+  - glyph7:
+      code: 0x0026
+
+  - glyph8:
+      code: 0x0027
+
+  - glyph9:
+      code: 0x0028
+
+  - glyph10:
+      code: 0x0029
+
+  - glyph11:
+      code: 0x002a
+
+  - glyph12:
+      code: 0x002b
+
+  - glyph13:
+      code: 0x002c
+
+  - glyph14:
+      code: 0x002d
+
+  - glyph15:
+      code: 0x002e
+
+  - glyph16:
+      code: 0x002f
+
+  - glyph17:
+      code: 0x0030
+
+  - glyph18:
+      code: 0x0031
+
+  - glyph19:
+      code: 0x0032
+
+  - glyph20:
+      code: 0x0033
+
+  - glyph21:
+      code: 0x0034
+
+  - glyph22:
+      code: 0x0035
+
+  - glyph23:
+      code: 0x0036
+
+  - glyph24:
+      code: 0x0037
+
+  - glyph25:
+      code: 0x003a
+
+  - glyph26:
+      code: 0x003b
+
+  - glyph27:
+      code: 0x003c
+
+  - glyph28:
+      code: 0x003e
+
+  - glyph29:
+      code: 0x003f
+
+  - glyph30:
+      code: 0x0040
+
+  - glyph31:
+      code: 0x0041
+
+  - glyph32:
+      code: 0x0042
+
+  - glyph33:
+      code: 0x0043
+
+  - glyph34:
+      code: 0x0044
+
+  - glyph35:
+      code: 0x0046
+
+  - glyph36:
+      code: 0x0048
+
+  - glyph37:
+      code: 0x0049
+
+  - glyph38:
+      code: 0x004a
+
+  - glyph39:
+      code: 0x004b
+
+  - glyph40:
+      code: 0x004c
+
+  - glyph41:
+      code: 0x004d
+
+  - glyph42:
+      code: 0x004e
+
+  - glyph43:
+      code: 0x004f
+
+  - glyph44:
+      code: 0x0050
+
+  - glyph45:
+      code: 0x0051
+
+  - glyph46:
+      code: 0x0052
+
+  - glyph47:
+      code: 0x0053
+
+  - glyph48:
+      code: 0x0054
+
+  - glyph49:
+      code: 0x0055
+
+  - glyph50:
+      code: 0x0056
+
+  - glyph51:
+      code: 0x0057
+
+  - glyph52:
+      code: 0x0058
+
+  - glyph53:
+      code: 0x005a
+
+  - glyph54:
+      code: 0x005b
+
+  - glyph55:
+      code: 0x005c
+
+  - glyph56:
+      code: 0x005d
+
+  - glyph57:
+      code: 0x005f
+
+  - glyph58:
+      code: 0x0060
+
+  - glyph59:
+      code: 0x0061
+
+  - glyph60:
+      code: 0x0062
+
+  - glyph61:
+      code: 0x0063
+
+  - glyph62:
+      code: 0x0064
+
+  - glyph63:
+      code: 0x0065
+
+  - glyph64:
+      code: 0x0066
+
+  - glyph65:
+      code: 0x0067
+
+  - glyph66:
+      code: 0x0068
+
+  - glyph67:
+      code: 0x0069
+
+  - glyph68:
+      code: 0x006a
+
+  - glyph69:
+      code: 0x006b
+
+  - glyph70:
+      code: 0x006c
+
+  - glyph71:
+      code: 0x006d
+
+  - glyph72:
+      code: 0x006e
+
+  - glyph73:
+      code: 0x006f
+
+  - glyph74:
+      code: 0x0070
+
+  - glyph75:
+      code: 0x0071
+
+  - glyph76:
+      code: 0x0072
+
+  - glyph77:
+      code: 0x0073
+
+  - glyph78:
+      code: 0x0074
+
+  - glyph79:
+      code: 0x0075
+
+  - glyph80:
+      code: 0x0076
+
+  - glyph81:
+      code: 0x0077
+
+  - glyph82:
+      code: 0x0078
+
+  - glyph83:
+      code: 0x0079
+
+  - glyph84:
+      code: 0x007a
+
+  - glyph85:
+      code: 0x007b
+
+  - glyph86:
+      code: 0x007d
+
+  - glyph87:
+      code: 0x007e
+
+  - glyph88:
+      code: 0x00b2
+
+  - glyph89:
+      code: 0x00b3
+
+  - glyph90:
+      code: 0x00b9
+
+  - glyph91:
+      code: 0x00d7
+
+  - glyph92:
+      code: 0xe000
