@@ -1,17 +1,31 @@
 #!/usr/bin/env python
 
+import sys
 import argparse
 import yaml
 import fontforge
 
 
+error = sys.stderr.write
+
+
+# returns dict representing duplicate values of seq
+# in seq = [1,1,2,3,3,3,3,4,5], out dict {1: 2, 3: 4}
+def get_dups(seq):
+    count = {}
+    for s in seq:
+        count[s] = count.get(s, 0) + 1
+    dups = dict((k, v) for k, v in count.iteritems() if v > 1)
+    return dups
+
+
 # returns list of tuples:
 # [(from_code1, to_code1), (from_code2, to_code2), ...]
-def get_remap_config(glyphs):
+def get_remap_config(config):
     def get_remap_item(glyph):
         name, glyph = glyph.items()[0]
         return (glyph.get('from', glyph['code']), glyph['code'])
-    return [get_remap_item(glyph) for glyph in glyphs]
+    return [get_remap_item(glyph) for glyph in config['glyphs']]
 
 
 if __name__ == '__main__':
@@ -25,47 +39,73 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    config = yaml.load(open(args.config, 'r'))
+    try:
+        config = yaml.load(open(args.config, 'r'))
+    except IOError as (errno, strerror):
+        error("Cannot open %s: %s\n" % (args.config, strerror))
+        sys.exit(1)
+    except yaml.YAMLError, e:
+        if hasattr(e, 'problem_mark'):
+            mark = e.problem_mark
+            error("YAML parser error in file %s at line %d, col %d" %
+                (args.config, mark.line + 1, mark.column + 1))
+        else:
+            error("YAML parser error in file %s: %s" % (args.config, e))
+        sys.exit(1)
 
-    remap_config = get_remap_config(config['glyphs'])
-    #print "remap_config=", remap_config
+    remap_config = get_remap_config(config)
+
     from_codes, to_codes = zip(*remap_config)
 
     # validate config: from codes
-    if len(from_codes) > len(set(from_codes)):
-        print "Error: from codes have duplicates"   # FIXME
-        exit(1)
+    dups = get_dups(from_codes)
+    if len(dups) > 0:
+        error("Error in file %s: glyph codes aren't unique:\n" % args.config)
+        for k in sorted(dups.keys()):
+            error("Duplicate 'from:' 0x%04x\n" % k)
+        sys.exit(1)
 
     # validate config: to codes
-    if len(to_codes) > len(set(to_codes)):
-        print "Error: to codes have duplicates"     # FIXME
-        exit(1)
+    dups = get_dups(to_codes)
+    if len(dups) > 0:
+        error("Error in file %s: glyph codes aren't unique:\n" % args.config)
+        for k in sorted(dups.keys()):
+            error("Duplicate 'code:' 0x%04x\n" % k)
+        sys.exit(1)
 
     codes_to_remap = [item for item in remap_config if item[0] != item[1]]
-    #print "codes_to_remap=", codes_to_remap
 
-    font = fontforge.open(args.src_font)
+    try:
+        font = fontforge.open(args.src_font)
+    except:
+        sys.exit(1)
 
-    # tmp font for copy()/paste()
+    # tmp font for cut()/paste()
     tmp_font = fontforge.font()
     tmp_font.encoding = 'Unicode'
 
-    #print "move glyphs to tmp_font"
     for from_code, to_code in codes_to_remap:
-        #print "0x%04x -> 0x%04x" % (from_code, to_code)
+        try:
+            font[from_code]
+        except TypeError:
+            error("Warning: no such glyph (code=0x%04x)\n" % from_code)
+            continue
+
         font.selection.select(("unicode",), from_code)
         font.cut()
         tmp_font.selection.select(("unicode",), to_code)
         tmp_font.paste()
 
-    #print "move glyphs from tmp_font to the right places"
     for from_code, to_code in codes_to_remap:
-        #print "0x%04x -> 0x%04x" % (to_code, to_code)
         tmp_font.selection.select(("unicode",), to_code)
         tmp_font.cut()
         font.selection.select(("unicode",), to_code)
         font.paste()
 
-    font.generate(args.dst_font)
+    try:
+        font.generate(args.dst_font)
+    except:
+        error("Cannot write to file %s\n" % args.dst_font)
+        sys.exit(1)
 
-    exit(0)
+    sys.exit(0)
