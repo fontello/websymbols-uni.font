@@ -47,17 +47,17 @@ if __name__ == '__main__':
     except yaml.YAMLError, e:
         if hasattr(e, 'problem_mark'):
             mark = e.problem_mark
-            error("YAML parser error in file %s at line %d, col %d" %
+            error("YAML parser error in file %s at line %d, col %d\n" %
                 (args.config, mark.line + 1, mark.column + 1))
         else:
-            error("YAML parser error in file %s: %s" % (args.config, e))
+            error("YAML parser error in file %s: %s\n" % (args.config, e))
         sys.exit(1)
 
     remap_config = get_remap_config(config)
 
     from_codes, to_codes = zip(*remap_config)
 
-    # validate config: from codes
+    # validate config: 'from:' codes
     dups = get_dups(from_codes)
     if len(dups) > 0:
         error("Error in file %s: glyph codes aren't unique:\n" % args.config)
@@ -65,15 +65,13 @@ if __name__ == '__main__':
             error("Duplicate 'from:' 0x%04x\n" % k)
         sys.exit(1)
 
-    # validate config: to codes
+    # validate config: 'code:' codes
     dups = get_dups(to_codes)
     if len(dups) > 0:
         error("Error in file %s: glyph codes aren't unique:\n" % args.config)
         for k in sorted(dups.keys()):
             error("Duplicate 'code:' 0x%04x\n" % k)
         sys.exit(1)
-
-    codes_to_remap = [item for item in remap_config if item[0] != item[1]]
 
     try:
         font = fontforge.open(args.src_font)
@@ -82,13 +80,20 @@ if __name__ == '__main__':
 
     # tmp font for cut()/paste()
     tmp_font = fontforge.font()
-    tmp_font.encoding = 'Unicode'
+    tmp_font.encoding = 'UnicodeFull'
 
-    for from_code, to_code in codes_to_remap:
+    # set font encoding so we can select any unicode code point
+    font.encoding = 'UnicodeFull'
+
+    for from_code, to_code in remap_config:
         try:
             font[from_code]
         except TypeError:
-            error("Warning: no such glyph (code=0x%04x)\n" % from_code)
+            error("Warning: no such glyph in the source font (code=0x%04x)\n" %
+                from_code)
+            continue
+
+        if from_code == to_code:
             continue
 
         font.selection.select(("unicode",), from_code)
@@ -96,7 +101,10 @@ if __name__ == '__main__':
         tmp_font.selection.select(("unicode",), to_code)
         tmp_font.paste()
 
-    for from_code, to_code in codes_to_remap:
+    for from_code, to_code in remap_config:
+        if from_code == to_code:
+            continue
+
         tmp_font.selection.select(("unicode",), to_code)
         tmp_font.cut()
         font.selection.select(("unicode",), to_code)
