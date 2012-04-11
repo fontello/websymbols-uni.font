@@ -27,7 +27,7 @@
 #
 #
 #
-# # Optional. You can apply global resize + offset to all font glyphs.
+# # Optional. You can apply global rescale + offset to all font glyphs.
 # # Param values ar 0..1, where 1 = 100%. 
 # #
 # transform:
@@ -62,12 +62,12 @@ demo:
 
 
 transform:
-  resize: 0.9
+  rescale: 1.8
   offset: 0
 
 
 font:
-  version: "1.000;PS 001.001;hotconv 1.0.56"
+  version: "1.0"
 
   # use !!!small!!! letters a-z, or Opera will fail under OS X
   # fontname will be also used as file name.
@@ -78,8 +78,8 @@ font:
 
   copyright: "Copyright (c) 2011 by Just Be Nice studio. All rights reserved."
 
-  ascent: 801
-  descent: 199
+  ascent: 1638
+  descent: 410
   weight: "Book"
 
 
