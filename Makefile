@@ -1,5 +1,5 @@
 PROJECT     := $(notdir ${PWD})
-FONT_NAME   := websymbols-regular
+FONT_NAME   := websymbols
 
 
 ################################################################################
