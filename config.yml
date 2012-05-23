@@ -112,269 +112,357 @@ glyphs:
 
   - file: glyph5
     code: 0x0023
+    uid: 221947bea81f49a11b863c686a7bd235
 
   - file: glyph6
     code: 0x0025
+    uid: cba6018f5de17c76f70b7d2c06037e5a
 
   - file: glyph7
     from: 0x0026
     code: 0xe001
+    uid: 2a3cd95de2621bd87479396f236fd2a4
 
   - file: glyph8
     from: 0x0027
     code: 0xe002
+    uid: 1bcc6c6369c3d475fa27115f806ff2ad
 
   - file: glyph9
     code: 0x0028
+    uid: 1526e1ee08023c1542cbf65d3a9afa93
 
   - file: glyph10
     code: 0x0029
+    uid: fd3128bf109153952b1b775ea574504b
 
   - file: glyph11
     code: 0x002a
+    uid: c23a66951b34ed7d449688d559afb213
 
   - file: glyph12
     code: 0x002b
+    uid: baa375529925294ea0a2bc889c93ba2d
 
   - file: glyph13
     code: 0x002c
+    uid: 46cacfc5030a225f338323a3538a18e8
 
   - file: glyph14
     code: 0x002d
+    uid: 9e22a8a67fe3b88cdd5e4253c85debdb
 
   - file: glyph15
     code: 0x002e
+    uid: 84d19120538dd143b9cf5433f2417f48
 
   - file: glyph16
     code: 0x002f
+    uid: 7b16b22168e762c88333f465da862098
 
   - file: glyph17
     code: 0x0030
+    uid: 157f2382d2c608c41d984c693174c83b
 
   - file: glyph18
     code: 0x0031
+    uid: 8da3ac534210aae9c0f0e13804c1df97
 
   - file: glyph19
     code: 0x0032
+    uid: 15739f3032c2aa3df67efc96b3ffef56
 
   - file: glyph20
     code: 0x0033
+    uid: a66e72da83c98248ae3ef43808efc452
 
   - file: glyph21
     code: 0x0034
+    uid: 994eaa764b3f30721f3839c64c390ce3
 
   - file: glyph22
     code: 0x0035
+    uid: 3c4a596e8ee3584c4c9e7002371db19f
 
   - file: glyph23
     code: 0x0036
+    uid: 21115bb09fa242341cb91ed34710aa13
 
   - file: glyph24
     code: 0x0037
+    uid: 95c84da411a955a12baff8b0859c9276
 
   - file: glyph25
     code: 0x003a
+    uid: 5184430eda6a2b9c989990e4bca70746
 
   - file: glyph26
     code: 0x003b
+    uid: e6ad31134a018fdeb64efe72d39edd65
 
   - file: glyph27
     from: 0x003c
     code: 0xe003
+    uid: 77dc6351a75ce82023a99696c9dd1ed3
 
   - file: glyph28
     from: 0x003e
     code: 0xe004
+    uid: 0f9d6be0e0fe72ddcfd75c8a6401d1aa
 
   - file: glyph29
     code: 0x003f
+    uid: 32eebd7bef491a0cbf9bc839e40d271c
 
   - file: glyph30
     code: 0x0040
+    uid: 838db85de51df09e2d0c34a17dc30ff6
 
   - file: glyph31
     code: 0x0041
+    uid: 63e2a597d744c3093e09fdd6108ee44f
 
   - file: glyph32
     code: 0x0042
+    uid: 889a8bd0b481e3523ede8a7d75164cd1
 
   - file: glyph33
     code: 0x0043
+    uid: b52aa05c9c55c41f1768cdaa940401a8
 
   - file: glyph34
     code: 0x0044
+    uid: 21f6a88daf13c62e5a70f5ef6ad9e23f
 
   - file: glyph35
     code: 0x0046
+    uid: 97ac1a82370ae58f02e4ff1bdc58ee86
 
   - file: glyph36
     code: 0x0048
+    uid: 69f76f7134f721d16c28ab23f84d4882
 
   - file: glyph37
     code: 0x0049
+    uid: 22baa2ff73747e588f6c066010654d6d
 
   - file: glyph38
     code: 0x004a
+    uid: eb1d9ac1cfa79d55aaf290c5a4ff266b
 
   - file: glyph39
     code: 0x004b
+    uid: f242fed2af708c938523b0e14d9c6b07
 
   - file: glyph40
     code: 0x004c
+    uid: bb1090404a4d33340a9ad7302ef8b6e8
 
   - file: glyph41
     code: 0x004d
+    uid: 26f5aa38f3889213334b3990b4ad483b
 
   - file: glyph42
     code: 0x004e
+    uid: 7645346d5ab8b17f69a9c765c180aca3
 
   - file: glyph43
     code: 0x004f
+    uid: 26aba7edd46944209b4961670675a813
 
   - file: glyph44
     code: 0x0050
+    uid: 74b2f1d1ee541715b3f389f7cdf63d1c
 
   - file: glyph45
     code: 0x0051
+    uid: 501f33ed61da407feb057a7699ef93f7
 
   - file: glyph46
     code: 0x0052
+    uid: 2d070116ca776192ee8e8c7e00c4d5a6
 
   - file: glyph47
     code: 0x0053
+    uid: 8667827e81897cf8b8d19dc492920f8d
 
   - file: glyph48
     code: 0x0054
+    uid: 9990c2588fd50406f36987e80e1e905b
 
   - file: glyph49
     code: 0x0055
+    uid: c9d395b295ad7d9c28298dcea916c6df
 
   - file: glyph50
     code: 0x0056
+    uid: 04960bf02134620e6c61bac8d6569502
 
   - file: glyph51
     code: 0x0057
+    uid: 715e1003368da5e5c41ae35190af68a1
 
   - file: glyph52
     code: 0x0058
+    uid: e160a7e42e4e818463fd5a8607b9f608
 
   - file: glyph53
     code: 0x005a
+    uid: 7e092c82e9a758b6e95297007969aac1
 
   - file: glyph54
     code: 0x005b
+    uid: d30928620bda0d5eaa85d3b65bf19963
 
   - file: glyph55
     from: 0x005c
     code: 0xe005
+    uid: a7e3ce91275bb77c0f4ec44a548b325c
 
   - file: glyph56
     code: 0x005d
+    uid: 1821ddf00a08cef133824b1a4fd4790e
 
   - file: glyph57
     code: 0x005f
+    uid: 9c5557d93ab810b192b13adcf77e8c84
 
   - file: glyph58
     code: 0x0060
+    uid: 35674c31693db324f2fd6a48f1079263
 
   - file: glyph59
     code: 0x0061
+    uid: fbed8311a5af2a8e5599246d9939a475
 
   - file: glyph60
     code: 0x0062
+    uid: 141d5c2168c8b09979b75ecfab004e71
 
   - file: glyph61
     code: 0x0063
+    uid: 41eeea14413f2539da21b4d1754bf4be
 
   - file: glyph62
     code: 0x0064
+    uid: 50ae91f6ed0e10a5e9eec6c63afedfb5
 
   - file: glyph63
     code: 0x0065
+    uid: 006ab50770cd7183b27004f856b989e4
 
   - file: glyph64
     code: 0x0066
+    uid: af3a08c6f521a065252ee35392864e15
 
   - file: glyph65
     code: 0x0067
+    uid: c87205006317fa2c4baa78a8f010336e
 
   - file: glyph66
     code: 0x0068
+    uid: 9ecf5170254e332a2c92cbbe85df94a8
 
   - file: glyph67
     code: 0x0069
+    uid: cf1d7ee3d5c367a5c5a3cc9e77acec68
 
   - file: glyph68
     code: 0x006a
+    uid: 00d6d0f4cda0621ae03893dcfeb9bb1d
 
   - file: glyph69
     code: 0x006b
+    uid: beb54ffa9c4b49c62af6fa72354d1740
 
   - file: glyph70
     code: 0x006c
+    uid: a3f13abf118d3c6abe3e99a6c296a9a5
 
   - file: glyph71
     code: 0x006d
+    uid: 7e25a96981e6bd6b1592c409da293c45
 
   - file: glyph72
     code: 0x006e
+    uid: e92e6cad2da0ee4bc374a1ef4c6ab12b
 
   - file: glyph73
     code: 0x006f
+    uid: ebbe0cc0600cb69375abc20af545967f
 
   - file: glyph74
     code: 0x0070
+    uid: a4765de460cc6485b1ca5b36222f41d5
 
   - file: glyph75
     code: 0x0071
+    uid: 335bfd225407f1205eddd3d47744e6be
 
   - file: glyph76
     code: 0x0072
+    uid: 9829cb345a4512f5aece933ba836ff1f
 
   - file: glyph77
     code: 0x0073
+    uid: 0e5740f288f6f5cb04eef63f7f0a1506
 
   - file: glyph78
     code: 0x0074
+    uid: 8870252f5da59a63564fb6790a347c8e
 
   - file: glyph79
     code: 0x0075
+    uid: a25ef3626c7bd7031709a8264f280bfe
 
   - file: glyph80
     code: 0x0076
+    uid: f6dfd6896053ff75262b8ad4baec251e
 
   - file: glyph81
     code: 0x0077
+    uid: 2d3ce9463ed5525c6faa01f84c957843
 
   - file: glyph82
     code: 0x0078
+    uid: 5fb90c2cd2cc4ceb3fb6e787aae73fd3
 
   - file: glyph83
     code: 0x0079
+    uid: b249a5eacbe28bc0d1c01a2a0ec17f67
 
   - file: glyph84
     code: 0x007a
+    uid: 7e70afa0f0980b7e3b4913300f8c5387
 
   - file: glyph85
     code: 0x007b
+    uid: 579c46971fccd6941167c3858df7f9a4
 
   - file: glyph86
     code: 0x007d
+    uid: 2b0e788f52806a9f499fbe9b6d33b00d
 
   - file: glyph87
     code: 0x007e
+    uid: 00f7d596414e1fa467c42a3ce30d92c0
 
   - file: glyph88
     code: 0x00b2
+    uid: 88a74ec52d603a14a51d5102296fafe6
 
   - file: glyph89
     code: 0x00b3
+    uid: acfa934ba7ca58d1866290c06b014a60
 
   - file: glyph90
     code: 0x00b9
+    uid: 7b7335e8aea0bbe9cbb6087fa76ca47d
 
   - file: glyph91
     code: 0x00d7
+    uid: 844dcef7763ada0807825188d09ab2b9
 
   - file: glyph92
     code: 0xe000
+    uid: 819e26ce16320e0595017406435ff9f2
