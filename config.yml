@@ -343,15 +343,16 @@ glyphs:
     from: 0x0044
     search: [popup, window]
 
+
   - css: left-open
     code: 0xe75d
     from: 0x003c
     search: [arrow, left]
+
   - css: right-open
     code: 0xe75e
     from: 0x003e
     search: [arrow, right]
-
 
   - css: down-circle
     code: 0xe4a4
