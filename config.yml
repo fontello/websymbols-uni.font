@@ -103,8 +103,8 @@ font:
 
   copyright: Copyright (c) 2011 by Just Be Nice studio. All rights reserved.
 
-  ascent: 800
-  descent: 200
+  ascent: 850
+  descent: 150
   weight: Medium
 
 
@@ -512,7 +512,7 @@ glyphs:
     from: 0x0070
     search: [editor, list]
 
-  - file: list-numbered
+  - css: list-numbered
     code: 0xe7ad
     uid: 00d6d0f4cda0621ae03893dcfeb9bb1d
     from: 0x0071
