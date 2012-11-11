@@ -88,7 +88,14 @@
 .icon-updown-circle:before { content: "\e7aa"; } /* '\e7aa' */
 .icon-target:before { content: "🎯"; } /* '\1f3af' */
 .icon-signal:before { content: "📶"; } /* '\1f4f6' */
-.icon-progress:before { content: "\e7ab"; } /* '\e7ab' */
+.icon-progress-0:before { content: "\30"; } /* '\30' */
+.icon-progress-1:before { content: "\31"; } /* '\31' */
+.icon-progress-2:before { content: "\32"; } /* '\32' */
+.icon-progress-3:before { content: "\33"; } /* '\33' */
+.icon-progress-4:before { content: "\34"; } /* '\34' */
+.icon-progress-5:before { content: "\35"; } /* '\35' */
+.icon-progress-6:before { content: "\36"; } /* '\36' */
+.icon-progress-7:before { content: "\37"; } /* '\37' */
 .icon-font:before { content: "\e779"; } /* '\e779' */
 .icon-list:before { content: "\e782"; } /* '\e782' */
 .icon-list-numbered:before { content: "\e7ad"; } /* '\e7ad' */
