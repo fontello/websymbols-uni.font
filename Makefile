@@ -12,10 +12,6 @@ REMOTE_NAME ?= origin
 REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
 
 
-# Add local versions of ttf2eot nd ttfautohint to the PATH
-#PATH := $(PATH):./support/font-builder/support/ttf2eot
-#PATH := $(PATH):./support/font-builder/support/ttfautohint/frontend
-#PATH := $(PATH):./support/font-builder/bin
 PWD  := $(shell pwd)
 BIN  := ./node_modules/.bin
 
@@ -31,46 +27,29 @@ dump:
 
 
 font:
-	@if test ! `which ttfautohint` ; then \
-		echo "ttfautohint not found. run:" >&2 ; \
-		echo "  make support" >&2 ; \
+	@if test ! -d node_modules ; then \
+		echo "dependencies not found:" >&2 ; \
+		echo "  make dependencies" >&2 ; \
 		exit 128 ; \
 		fi
 
 	${BIN}/svg-font-create -c config.yml -i ./src/svg -o "./font/$(FONT_NAME).svg"
 	fontforge -c 'font = fontforge.open("./font/$(FONT_NAME).svg"); font.generate("./font/$(FONT_NAME).ttf")'
-	#fontbuild.py -c ./config.yml -t ./src/font_template.sfd -i ./src/svg -o ./font/$(FONT_NAME).ttf
-	#font_remap.py -c ./config.yml -i ./src/original/websymbols-regular-webfont.ttf -o ./font/$(FONT_NAME).ttf
-	#font_transform.py -c ./config.yml -i ./font/$(FONT_NAME).ttf -o ./font/$(FONT_NAME)-transformed.ttf
-	#mv ./font/$(FONT_NAME)-transformed.ttf ./font/$(FONT_NAME).ttf
-	ttfautohint --latin-fallback --hinting-limit=200 --hinting-range-max=50 --symbol ./font/$(FONT_NAME).ttf ./font/$(FONT_NAME)-hinted.ttf
-	mv ./font/$(FONT_NAME)-hinted.ttf ./font/$(FONT_NAME).ttf
-	#fontconvert.py -i ./font/$(FONT_NAME).ttf -o ./font
+
+	@if test `which ttfautohint` ; then \
+		ttfautohint --latin-fallback --hinting-limit=200 --hinting-range-max=50 --symbol ./font/$(FONT_NAME).ttf ./font/$(FONT_NAME)-hinted.ttf && \
+		mv ./font/$(FONT_NAME)-hinted.ttf ./font/$(FONT_NAME).ttf ; \
+		else \
+		echo "WARNING: ttfautohint not found. Font will not be hinted." >&2 ; \
+		fi
+
 	${BIN}/ttf2eot "./font/$(FONT_NAME).ttf" "./font/$(FONT_NAME).eot"
 	${BIN}/ttf2woff "./font/$(FONT_NAME).ttf" "./font/$(FONT_NAME).woff"
 
 
-npm-deps:
-	@if test ! `which npm` ; then \
-		echo "Node.JS and NPM are required for html demo generation." >&2 ; \
-		echo "This is non-fatal error and you'll still be able to build font," >&2 ; \
-		echo "however, to build demo with >> make html << you need:" >&2 ; \
-		echo "  - Install Node.JS and NPM" >&2 ; \
-		echo "  - Run this task once again" >&2 ; \
-		else \
-		npm install -g jade js-yaml.bin ; \
-		fi
-
-
-support:
-	git submodule init support/font-builder
-	git submodule update support/font-builder
-	which ttf2eot ttfautohint > /dev/null || (cd support/font-builder && $(MAKE))
-	which js-yaml jade > /dev/null || $(MAKE) npm-deps
-
-
 html:
 	@${BIN}/jade -O '$(shell node_modules/.bin/js-yaml -j config.yml)' ./src/demo/demo.jade -o ./font
+
 
 gh-pages:
 	@if test -z ${REMOTE_REPO} ; then \
@@ -89,22 +68,30 @@ gh-pages:
 	rm -rf ${TMP_PATH}
 
 
-dev-deps:
-	@if test 0 -ne `id -u` ; then \
-		echo "root priveledges are required" >&2 ; \
+dependencies:
+	@if test ! `which npm` ; then \
+		echo "Node.JS and NPM are required for html demo generation." >&2 ; \
+		echo "This is non-fatal error and you'll still be able to build font," >&2 ; \
+		echo "however, to build demo with >> make html << you need:" >&2 ; \
+		echo "  - Install Node.JS and NPM" >&2 ; \
+		echo "  - Run this task once again" >&2 ; \
 		exit 128 ; \
 		fi
-	apt-get -qq install \
-		fontforge python python-fontforge libfreetype6-dev \
-		python-yaml python-pip \
-		build-essential \
-		autoconf automake libtool
-	pip -q install pystache argparse
+	@if test ! `which ttfautohint` ; then \
+		echo "Trying to install ttf-autohint from repository..." ; \
+		apt-cache policy -q=2 | grep -q 'Candidate' && \
+			sudo apt-get install ttfautohint && \
+			echo "SUCCESS" || echo "FAILED" ; \
+		fi
+	@if test ! `which ttfautohint` ; then \
+		echo "Trying to install ttf-autohint from Debian's repository..." ; \
+		curl --silent --show-error --output /tmp/ttfautohint.deb \
+			http://ftp.de.debian.org/debian/pool/main/t/ttfautohint/ttfautohint_0.95-1_amd64.deb && \
+		sudo dpkg -i /tmp/ttfautohint.deb && \
+			echo "SUCCESS" || echo "FAILED" ; \
+		fi
+	@if test ! -d node_modules ; then \
+		npm install ; \
+		fi
 
-
-clean:
-	git clean -f -x
-
-
-.SILENT: dev-deps
-.PHONY: font support
+.PHONY: font html dist dump gh-pages dependencies
