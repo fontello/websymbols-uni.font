@@ -142,7 +142,7 @@ glyphs:
     code: 0x1f464
     uid: fd3128bf109153952b1b775ea574504b
     from: 0x0055
-    search: [profile, contact, user]
+    search: [profile, contact, user, person, man, human]
 
   - css: video
     code: 0x1f3ac
